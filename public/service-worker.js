@@ -3,8 +3,7 @@ const FILES_TO_CACHE = [
     "/index.html",
     "/index.js",
     "/db.js",
-    "/styles.css",
-    "/manifest.webmanifest",
+    "/styles.css"
   ];
   
   const CACHE_NAME = "static-cache-v2";
@@ -41,7 +40,6 @@ self.addEventListener("activate", function(evt) {
 
 // fetch
 self.addEventListener("fetch", function(evt) {
-  // cache successful requests to the API
   if (evt.request.url.includes("/api/")) {
     evt.respondWith(
       caches.open(DATA_CACHE_NAME).then(cache => {
